@@ -15,7 +15,7 @@
     width: 300px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 3;
+    /* grid-template-rows: 3; */
     margin: auto;
 
 }
@@ -51,7 +51,7 @@
     font-size: 25px;
 }
 
-/* X */
+/* X + O */
 .content {
     font-size: 90px;
     text-align: center;
