@@ -49,7 +49,7 @@ function printHi(e){
     };
     //update text
     info.textContent = "Player " + player + "'s turn";
-    go.removeEventListener('click');
+    go.removeEventListener('click', printHi);
 }
 
 
