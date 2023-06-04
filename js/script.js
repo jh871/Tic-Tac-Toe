@@ -1,22 +1,22 @@
 // Grab all elements
 // add event listeners to squares - done
 // identify square by ID of event target - done
-//set turn
-let player = "One";
+
 //grabbing all squares
 const squares = document.querySelectorAll(".box");
 //info
 const info = document.getElementById("info")
-//update text
-info.textContent = "Player " + player + "'s turn";
+
 
 //arrays to hold each square
 let emptySquares = [];
-let userSquares = [];
-let oppSquares = [];
+let oneSquares = [];
+let twoSquares = [];
+//set turn
+let player = "One";
 
-
-
+//update text
+info.textContent = "Player " + player + "'s turn";
 
 //adding event listener to each square
 squares.forEach((square) => square.addEventListener('click', printHi));
@@ -31,14 +31,13 @@ function printHi(e){
     let box = e.target;
     console.log(box.id);
     emptySquares = emptySquares.filter(x => x !== box.id)
-    userSquares.push(box.id)
-    // console.log(emptySquares);
-    // console.log(userSquares);
+    oneSquares.push(box.id)
+
     let go = document.getElementById(box.id);
 
     go.classList.add(player); //only works once
     
-    
+    checkWin();
 
     //Alternate goes between two people -
     
@@ -51,6 +50,50 @@ function printHi(e){
     info.textContent = "Player " + player + "'s turn";
     go.removeEventListener('click', printHi);
 }
+
+//win conditions:
+function checkWin() {
+    console.log(squares)
+
+    const winConds = [
+        [0, 1, 2],
+        [0, 4, 8],
+        [0, 3, 7],
+        [1, 4, 7],
+        [2, 5, 8],
+        [2, 4, 7],
+        [3, 4, 5],
+        [6, 7, 8],
+    ]
+
+    //Check player One win
+    winConds.forEach(arr => { 
+        //takes each winConds array and checks if squares with corresponding IDs have the class 'One' (or 'Two') in them. If all 3 squares do, it's a win.
+        let winnerOne = arr.every(square => squares[square].classList.contains("One"));
+
+        if (winnerOne) {
+        //update text
+        info.textContent = "Player One wins!";
+        return;
+        }
+    })
+
+
+    // //Check player Two win
+    // winConds.forEach(arr => {
+    //     let winnerTwo = arr.every(id => squares[id].classList.contains("Two"))
+
+    //     if (winnerTwo) {
+    //     //update text
+    //     info.textContent = "Player Two wins!";
+    //     return;
+    //     }
+    // })
+
+    //currently doesn't like (squares[square])
+}
+
+
 
 
 
@@ -66,10 +109,9 @@ function compGo(){
 
 
 
-//draw different shape
-//or initially add different bg colours - Done
+
 //win conditions
-//update score/info
+
 
 /*Overall game:
 -----------------------
@@ -83,10 +125,27 @@ let oppSquares = [];
 let player = "playerOne";
 
 //win conditions:
+function checkWin() {
+    console.log(squares)
 
+    const winConds = [
+        [0, 1, 3],
+        [0, 4, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [3, 5, 8],
+        [3, 4, 6],
+        [3, 4, 5],
+        [6, 7, 8],
+    ]
+}
 
-
-
+// draw condition
+        if (emptySquares === [] && winConds = false) {
+            info.textContent("It's a draw!")
+        } else {
+            ()
+        }
 
 ---------------
 Grab elements:
