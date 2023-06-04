@@ -47,7 +47,7 @@
 }
 
 /* Scores/Info */
-.score {
+#info {
     font-size: 25px;
 }
 
@@ -58,11 +58,11 @@
 }
 
 
-.playerOne {
+.One {
     background-color: aqua;
 }
 /* O */
-.playerTwo {
+.Two {
     background-color: darkmagenta;
 }
 
