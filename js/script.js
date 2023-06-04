@@ -10,6 +10,8 @@ let emptySquares = [];
 let userSquares = [];
 let oppSquares = [];
 
+//set turn
+let player = "playerOne";
 
 
 //adding event listener to each square
@@ -28,8 +30,15 @@ function printHi(e){
     userSquares.push(box.id)
     console.log(emptySquares);
     console.log(userSquares);
-    box.innerHTML = "<p>Hi</p>";
+    let go = document.getElementById(box.id);
+
+    go.classList.add(player);
+
+    //Alternate goes between two people
     
+    if (player !== "playerTwo") {
+        player = "playerTwo";
+    }
 }
 
 
@@ -44,7 +53,8 @@ function compGo(){
 }
 */
 
-//Alternate goes between two people
+
+
 //draw different shape
 //or initially add different bg colours to each square using addAttribute - style
 //win conditions

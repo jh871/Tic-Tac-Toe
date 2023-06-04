@@ -15,7 +15,7 @@
     width: 300px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    /* grid-template-rows: 3; */
+    /* grid-template-rows: 3; */  
     margin: auto;
 
 }
@@ -57,8 +57,14 @@
     text-align: center;
 }
 
-/* O */
 
+.playerOne {
+    background-color: aqua;
+}
+/* O */
+.playerTwo {
+    background-color: darkmagenta;
+}
 
 /*  */
 /*  */
