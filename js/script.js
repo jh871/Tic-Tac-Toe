@@ -17,7 +17,6 @@ let twoSquares = [];
 //set turn
 let player = "One";
 
-
 //set text
 info.textContent = "Player One starts";
 
@@ -74,15 +73,15 @@ function checkWin() {
         if (oneSquares.includes(square0) &&
         oneSquares.includes(square1) &&
         oneSquares.includes(square2)) {
-            console.log("One wins");
-            info.textContent = "Player One wins!";
             info.classList.add("win");
+            info.textContent = "Player One wins!";
+            stopGame();
         } else if (twoSquares.includes(square0) &&
         twoSquares.includes(square1) &&
         twoSquares.includes(square2)) {
-            console.log("Two wins");
             info.classList.add("win");
             info.textContent = "Player Two wins!";
+            stopGame();
         } else if (emptySquares.length === 0) {
             info.classList.add("draw")
             draw();
@@ -90,9 +89,15 @@ function checkWin() {
     }
 }   
 
-//if there's a draw - currently not working
+//if there's a draw
 function draw() {
     info.textContent = "It's a draw! Refresh to play again";
+}
+
+function stopGame() {
+    squares.forEach((square) => {
+        square.replaceWith(square.cloneNode(true))
+    });
 }
 
 
