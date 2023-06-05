@@ -76,11 +76,13 @@ function checkWin() {
         oneSquares.includes(square2)) {
             console.log("One wins");
             info.textContent = "Player One wins!";
+            info.classList.add("win");
         } else if (twoSquares.includes(square0) &&
         twoSquares.includes(square1) &&
         twoSquares.includes(square2)) {
             console.log("Two wins");
-            info.textContent = "Player Two wins! Refresh to play again";
+            info.classList.add("win");
+            info.textContent = "Player Two wins!";
         } else if (emptySquares.length === 0) {
             draw();
         }
