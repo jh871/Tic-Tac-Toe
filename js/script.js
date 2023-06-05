@@ -84,6 +84,7 @@ function checkWin() {
             info.classList.add("win");
             info.textContent = "Player Two wins!";
         } else if (emptySquares.length === 0) {
+            info.classList.add("draw")
             draw();
         }
     }
