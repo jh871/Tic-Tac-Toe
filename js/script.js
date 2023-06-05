@@ -30,7 +30,7 @@ function takeTurn(event){
     //modify square for player's turn
     go.classList.add(player); 
     
-    // checkWin();
+    checkWin();
 
     //Alternate goes between two people -
     if (player === "One") {
@@ -46,34 +46,41 @@ function takeTurn(event){
 
 //win conditions:
 function checkWin() {
-    console.log(squares)
+    // console.log(squares)
     const winConditions = [
-        [0, 1, 3],
+        [0, 1, 2],
         [0, 4, 8],
         [0, 3, 6],
         [1, 4, 7],
-        [3, 5, 8],
-        [3, 4, 6],
+        [2, 5, 8],
+        [2, 4, 6],
         [3, 4, 5],
         [6, 7, 8],
     ]    
     //Attempt method 1:
     //loop through arrays
+    for (let i=0; i < winConditions.length; i++) {
+        // winConditions[i]
+        let square0 = winConditions[i][0];
+        let square1 = winConditions[i][1];
+        let square2 = winConditions[i][2];
+        console.log(square0, square1, square2);
+    }
     //compare class
     // Check player One win
 
-    if (winnerOne) {
-    //update text
-    info.textContent = "Player One wins!";
-    return;
-    }
+//     if (winnerOne) {
+//     //update text
+//     info.textContent = "Player One wins!";
+//     return;
+//     }
     
-    //Check player Two win
-    if (winnerTwo) {
-    //update text
-    info.textContent = "Player Two wins!";
-    return;
-    }
+//     //Check player Two win
+//     if (winnerTwo) {
+//     //update text
+//     info.textContent = "Player Two wins!";
+//     return;
+//     }
 }
 
 
@@ -114,15 +121,14 @@ let oppSquares = [];
 /* Method 3: 
 Use data-value attributes on squares where each winning line adds up to 15
 // let value = box.getAttribute('data-value');
-    // console.log(value);
+// console.log(value);
 */
 
-/* computer's go for vs computer mode
-function compGo(){
-    let choice = emptySquares.length;
-    let number = Math.floor(Math.random()*choice);
-    console.log(number);
-    let number = Math.floor(Math.random()*choice);
-    let computerGo = emptySquares[number];
-}
-*/
+/* computer's go for vs computer mode*/
+// function compGo(){
+//     let choice = emptySquares.length;
+//     let number = Math.floor(Math.random()*choice);
+//     console.log(number);
+//     let number = Math.floor(Math.random()*choice);
+//     let computerGo = emptySquares[number];
+// }
